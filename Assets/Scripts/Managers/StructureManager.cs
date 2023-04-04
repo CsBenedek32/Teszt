@@ -7,33 +7,43 @@ using UnityEngine.UIElements;
 
 public class StructureManager : MonoBehaviour
 {
-    public StructurePrefabWeighted[] housesPrefabs, specialPrefabs, bigStructurePrefabs;
+    public StructurePrefabWeighted[] residentialZonePrefabs, commercialZonePrefabs, industrialZonePrefabs, bigStructurePrefabs;
     public PlacementManager placementManager;
 
-    private float[] houseWeights, specialWeights, bigStructureWeights;
+    private float[] residentialWeights, commercialWeights, industrialWeights, bigStructureWeights;
 
     private void Start()
     {
-        houseWeights = housesPrefabs.Select(prefabStats => prefabStats.weight).ToArray();
-        specialWeights = specialPrefabs.Select(prefabStats => prefabStats.weight).ToArray() ;
+        residentialWeights  = residentialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
+        commercialWeights   = commercialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
+        industrialWeights   = industrialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
         bigStructureWeights = bigStructurePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
     }
 
-    public void PlaceHouse(Vector3Int p)
+    public void PlaceResidentialZone(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
         {
-            int randomIndex = GetRandomWeightIndex(houseWeights);
-            placementManager.PlaceObjectOnTheMap(p, housesPrefabs[randomIndex].prefab, CellType.Structure);
+            int randomIndex = GetRandomWeightIndex(residentialWeights);
+            placementManager.PlaceObjectOnTheMap(p, residentialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
-    public void PlaceSpecial(Vector3Int p)
+    public void PlaceCommercialZone(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
         {
-            int randomIndex = GetRandomWeightIndex(specialWeights);
-            placementManager.PlaceObjectOnTheMap(p, specialPrefabs[randomIndex].prefab, CellType.Structure);
+            int randomIndex = GetRandomWeightIndex(commercialWeights);
+            placementManager.PlaceObjectOnTheMap(p, commercialZonePrefabs[randomIndex].prefab, CellType.Structure);
+        }
+    }
+
+    public void PlaceIndustrialZone(Vector3Int p)
+    {
+        if (CheckPositionBeforePlacement(p))
+        {
+            int randomIndex = GetRandomWeightIndex(industrialWeights);
+            placementManager.PlaceObjectOnTheMap(p, industrialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
@@ -152,6 +162,8 @@ public class StructureManager : MonoBehaviour
             placementManager.RemoveHouse(p);   
         }
     }
+
+    
 }
 
 [Serializable]
