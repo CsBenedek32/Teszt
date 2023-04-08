@@ -46,6 +46,7 @@ public class UiController : MonoBehaviour
             onRemoveStructure?.Invoke();
 
         });
+
     }
 
     private void ModifyOutline(Button button)
