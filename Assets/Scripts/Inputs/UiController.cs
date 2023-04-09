@@ -19,32 +19,27 @@ public class UiController : MonoBehaviour
         placeRoadButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeRoadButton);
-            OnRoadPlacement?.Invoke();
-        
+            OnRoadPlacement?.Invoke();  
         });
         placeHouseButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeHouseButton);
             OnHousePlacement?.Invoke();
-
         });
         placeSpecialButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeSpecialButton);
             OnSpecialPlacement?.Invoke();
-
         });
         placeBigStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeBigStructureButton);
             OnBigStructurePlacement?.Invoke();
-
         });
         removeStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(removeStructureButton);
             onRemoveStructure?.Invoke();
-
         });
     }
 
