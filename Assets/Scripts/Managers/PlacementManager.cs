@@ -42,6 +42,11 @@ public class PlacementManager : MonoBehaviour
            
     }
 
+    public StructureModel Selected
+    {
+        get { return selected; }
+    }
+
     internal bool CheckIfPositionInBound(Vector3Int position)
     {
         if (position.x >= 0 && position.x < width && position.z >= 0 && position.z < height)
