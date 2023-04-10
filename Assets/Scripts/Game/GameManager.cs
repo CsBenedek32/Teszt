@@ -44,6 +44,12 @@ public class GameManager : MonoBehaviour
         inputManager.OnMouseClick += structureManager.PlaceHouse;
     }
 
+    private void selectionHandler()
+    {
+        ClearInputAction();
+        inputManager.OnMouseClick += structureManager.Select;
+    }
+
     private void specialPlacementHandler()
     {
         ClearInputAction();

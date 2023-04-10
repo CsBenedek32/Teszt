@@ -13,6 +13,7 @@ public class PlacementManager : MonoBehaviour
     int numberOfStructures;
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
     private Dictionary<Vector3Int, StructureModel> structureAndRoadsDictionary = new Dictionary<Vector3Int, StructureModel>();
+    private StructureModel selected;
 
    
   
@@ -20,6 +21,7 @@ public class PlacementManager : MonoBehaviour
     {
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
+        selected = null;
        
     }
 
@@ -66,6 +68,12 @@ public class PlacementManager : MonoBehaviour
         }
         
 
+    }
+
+    internal void SelectObjectOnTHeMap(Vector3Int position)
+    {
+        selected = structureAndRoadsDictionary[position];
+        Debug.Log(selected);
     }
 
 

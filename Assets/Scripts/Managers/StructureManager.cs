@@ -28,6 +28,14 @@ public class StructureManager : MonoBehaviour
         }
     }
 
+    public void Select(Vector3Int p)
+    {
+        if (CheckPositionBeforeSelect(p))
+        {
+            
+        }
+    }
+
     public void PlaceSpecial(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
@@ -82,7 +90,14 @@ public class StructureManager : MonoBehaviour
         return true;
     }
 
-   
+    private bool CheckPositionBeforeSelect(Vector3Int position)
+    {
+        if (placementManager.CheckIfPositionInBound(position))
+        {
+            return true;
+        }
+        return false;
+    }
 
 
     private bool roadCheck(Vector3Int position)
