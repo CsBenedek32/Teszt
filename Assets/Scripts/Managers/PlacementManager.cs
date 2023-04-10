@@ -72,7 +72,10 @@ public class PlacementManager : MonoBehaviour
 
     internal void SelectObjectOnTheMap(Vector3Int position)
     {
-        selected = structureAndRoadsDictionary[position];
+        if (structureAndRoadsDictionary.ContainsKey(position))
+            selected = structureAndRoadsDictionary[position];
+        else
+            selected = null;
         Debug.Log(selected);
     }
 
