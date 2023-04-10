@@ -32,7 +32,7 @@ public class StructureManager : MonoBehaviour
     {
         if (CheckPositionBeforeSelect(p))
         {
-            
+            placementManager.SelectObjectOnTheMap(p);
         }
     }
 

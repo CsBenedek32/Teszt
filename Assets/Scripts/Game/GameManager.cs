@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         uiController.OnSpecialPlacement += specialPlacementHandler;
         uiController.OnBigStructurePlacement += bigStructurePlacementHandler;
         uiController.onRemoveStructure += removeStructureHandler;
+        uiController.onSelect += selectionHandler;
     }
 
     private void removeStructureHandler()
