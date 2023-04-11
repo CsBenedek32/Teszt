@@ -24,6 +24,8 @@ public class Timer : MonoBehaviour
 
         textBox.text = initialDate.ToString("yyyy/MM/dd");
         actDate = initialDate;
+        ModifyOutline(speed1Button);
+
 
         stopButton.onClick.AddListener(() => {
             ResetButtonColor();
