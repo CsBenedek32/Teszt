@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 
 public class PlacementManager : MonoBehaviour
 {
+    public Button button_for_probe;
     public int width, height;
     Grid placementGrid;
 
@@ -14,13 +15,17 @@ public class PlacementManager : MonoBehaviour
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
     private Dictionary<Vector3Int, StructureModel> structureAndRoadsDictionary = new Dictionary<Vector3Int, StructureModel>();
 
+    public StructureManager structureManager;
+    public int initialNumOfWoods;
+    int numberOfWoods = 0;
    
   
     private void Start()
     {
+        //initialNumOfWoods = 3;
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
-       
+        placeInitialWoods(initialNumOfWoods);
     }
 
     internal CellType[] GetNeighbourTypesFor(Vector3Int position)
@@ -51,7 +56,6 @@ public class PlacementManager : MonoBehaviour
 
     internal void PlaceObjectOnTheMap(Vector3Int position, GameObject structurePrefab, CellType type, int width = 1, int height = 1)
     {
-        
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
         for (int x = 0; x < width; x++)
         {
@@ -199,7 +203,19 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
-   
+    void placeInitialWoods(int woodsNeeded)
+    {
+        while(numberOfWoods<woodsNeeded)
+        {
+            numberOfWoods++;
+            placeWoods();
+        }
+    }
 
-    
+    void placeWoods()
+    {
+        structureManager.PlaceWoods();
+    }
+
+
 }

@@ -19,6 +19,22 @@ public class StructureManager : MonoBehaviour
         bigStructureWeights = bigStructurePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
     }
 
+    internal void PlaceWoods()
+    {
+        int x, y, z;
+        Vector3Int position;
+        System.Random r = new System.Random();
+        y = 0;
+        do
+        {
+            x = r.Next(0, 30);
+            z = r.Next(0, 30);
+            position = new Vector3Int(x, y, z);
+        } while (!CheckPositionBeforePlacementForWoods(position));
+        int randomIndex = 1;
+        placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+    }
+
     public void PlaceHouse(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
@@ -39,10 +55,9 @@ public class StructureManager : MonoBehaviour
 
     private int GetRandomWeightIndex(float[] weights)
     {
-        
+
         //honestly idk mi töréténik itt ???????????????????
         //inkabb hogy miért törénik itt ez a kérdés     -Benedek
-        
 
         float sum = 0f;
         for (int i = 0; i < weights.Length; i++)
@@ -65,8 +80,16 @@ public class StructureManager : MonoBehaviour
     }
 
 
+    private bool CheckPositionBeforePlacementForWoods(Vector3Int position)
+    {
+        if (defaultCheck(position) == false)
+        {
+            return false;
+        };
+        
+        return true;
+    }
 
-    
     private bool CheckPositionBeforePlacement(Vector3Int position)
     {
         if (defaultCheck(position) == false) {
