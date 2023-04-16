@@ -22,7 +22,7 @@ public class UiController : MonoBehaviour
 
             placeRoadButton,
             placeBigStructureButton,
-            selectButton
+            selectButton,
             removeStructureButton };
 
 
