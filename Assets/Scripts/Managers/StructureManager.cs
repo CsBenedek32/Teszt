@@ -29,6 +29,16 @@ public class StructureManager : MonoBehaviour
         }
     }
 
+
+    public void Select(Vector3Int p)
+    {
+        if (CheckPositionBeforeSelect(p))
+        {
+            placementManager.SelectObjectOnTheMap(p);
+        }
+    }
+
+    
     public void PlaceCommercialZone(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
@@ -50,8 +60,8 @@ public class StructureManager : MonoBehaviour
     private int GetRandomWeightIndex(float[] weights)
     {
         
-        //honestly idk mi töréténik itt ???????????????????
-        //inkabb hogy miért törénik itt ez a kérdés     -Benedek
+        //honestly idk mi tï¿½rï¿½tï¿½nik itt ???????????????????
+        //inkabb hogy miï¿½rt tï¿½rï¿½nik itt ez a kï¿½rdï¿½s     -Benedek
         
 
         float sum = 0f;
@@ -92,7 +102,14 @@ public class StructureManager : MonoBehaviour
         return true;
     }
 
-   
+    private bool CheckPositionBeforeSelect(Vector3Int position)
+    {
+        if (placementManager.CheckIfPositionInBound(position))
+        {
+            return true;
+        }
+        return false;
+    }
 
 
     private bool roadCheck(Vector3Int position)

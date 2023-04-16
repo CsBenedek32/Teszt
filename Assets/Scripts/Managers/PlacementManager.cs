@@ -13,6 +13,7 @@ public class PlacementManager : MonoBehaviour
     int numberOfStructures;
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
     private Dictionary<Vector3Int, StructureModel> structureAndRoadsDictionary = new Dictionary<Vector3Int, StructureModel>();
+    private StructureModel selected;
 
    
   
@@ -20,6 +21,7 @@ public class PlacementManager : MonoBehaviour
     {
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
+        selected = null;
        
     }
 
@@ -38,6 +40,11 @@ public class PlacementManager : MonoBehaviour
 
         return result;
            
+    }
+
+    public StructureModel Selected
+    {
+        get { return selected; }
     }
 
     internal bool CheckIfPositionInBound(Vector3Int position)
@@ -66,6 +73,15 @@ public class PlacementManager : MonoBehaviour
         }
         
 
+    }
+
+    internal void SelectObjectOnTheMap(Vector3Int position)
+    {
+        if (structureAndRoadsDictionary.ContainsKey(position))
+            selected = structureAndRoadsDictionary[position];
+        else
+            selected = null;
+        Debug.Log(selected);
     }
 
 

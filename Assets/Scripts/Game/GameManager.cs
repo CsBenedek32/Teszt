@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
 
         uiController.OnBigStructurePlacement += bigStructurePlacementHandler;
         uiController.onRemoveStructure += removeStructureHandler;
+        uiController.onSelect += selectionHandler;
     }
 
     
@@ -47,6 +48,13 @@ public class GameManager : MonoBehaviour
     {
         ClearInputAction();
         inputManager.OnMouseClick += structureManager.PlaceResidentialZone;
+    }
+
+
+    private void selectionHandler()
+    {
+        ClearInputAction();
+        inputManager.OnMouseClick += structureManager.Select;
     }
 
     private void commercialZonePlacementHandler()

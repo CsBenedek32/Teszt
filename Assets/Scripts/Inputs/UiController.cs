@@ -6,8 +6,9 @@ using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
-    public Action OnRoadPlacement, OnResidentialPlacement, OnCommercialPlacement, OnIndustrialPlacement, OnBigStructurePlacement, onRemoveStructure;
-    public Button placeRoadButton, placeResidentialButton, placeCommercialButton, placeIndustrialButton, placeBigStructureButton, removeStructureButton;
+    public Action OnRoadPlacement, OnResidentialPlacement, OnCommercialPlacement, OnIndustrialPlacement, OnBigStructurePlacement, onRemoveStructure,onSelect;
+    public Button placeRoadButton, placeResidentialButton, placeCommercialButton, placeIndustrialButton, placeBigStructureButton, removeStructureButton,selectButton;
+
 
     public Color outlineColor;
     List<Button> buttons;
@@ -21,8 +22,9 @@ public class UiController : MonoBehaviour
 
             placeRoadButton,
             placeBigStructureButton,
-
+            selectButton
             removeStructureButton };
+
 
         placeRoadButton.onClick.AddListener(() => {
             ResetButtonColor();
@@ -58,6 +60,12 @@ public class UiController : MonoBehaviour
             ResetButtonColor();
             ModifyOutline(removeStructureButton);
             onRemoveStructure?.Invoke();
+
+        });
+        selectButton.onClick.AddListener(() => {
+            ResetButtonColor();
+            ModifyOutline(selectButton);
+            onSelect?.Invoke();
 
         });
     }
