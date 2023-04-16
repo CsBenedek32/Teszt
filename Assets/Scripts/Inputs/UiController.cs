@@ -62,12 +62,14 @@ public class UiController : MonoBehaviour
             onRemoveStructure?.Invoke();
 
         });
+
         selectButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(selectButton);
             onSelect?.Invoke();
 
         });
+
     }
 
     private void ModifyOutline(Button button)
