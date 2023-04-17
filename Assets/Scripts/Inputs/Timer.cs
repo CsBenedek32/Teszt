@@ -6,6 +6,7 @@ using System;
 
 public class Timer : MonoBehaviour
 {
+    /*
     public Button stopButton, speed1Button, speed2Button, speed3Button;
     List<Button> buttons;
     public Color borderColor;
@@ -94,4 +95,5 @@ public class Timer : MonoBehaviour
             button.GetComponent<Outline>().enabled = false;
         }
     }
+    */
 }

@@ -23,7 +23,6 @@ public class PlacementManager : MonoBehaviour
   
     private void Start()
     {
-        initialNumOfWoods = 5;
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
         selected = null;

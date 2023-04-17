@@ -31,7 +31,7 @@ namespace SVS
         }
         internal void ZoomOut()
         {
-            if (GetComponent<Camera>().fieldOfView < 50)
+            if (GetComponent<Camera>().fieldOfView < 25)
             GetComponent<Camera>().fieldOfView++;
         }
     }
