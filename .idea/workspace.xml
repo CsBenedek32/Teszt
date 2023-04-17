@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b7f6a252-90aa-4bf4-9ddb-3060b6ed09d0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest for Unity.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest for Unity.obj.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest.prefab" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest.prefab.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Woods.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Woods.obj.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PressStart2P.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/PressStart2P.ttf.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inputs/Timer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Inputs/Timer.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/SpaceModels.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/SpaceModels.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest for Unity.obj.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest for Unity.obj.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Models/StructureModels/Forest.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone1.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone1.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone2.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone2.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone3.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Structures/Zone3.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resource_warehouse.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resource_warehouse.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runway strip 1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Runway strip 1.fbx.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Runway strip.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Runway strip.fbx.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/TownScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/TownScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlacementManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlacementManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StructureManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StructureManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Inputs/UiController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Inputs/UiController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Documentation.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +39,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
