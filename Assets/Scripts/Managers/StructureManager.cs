@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class StructureManager : MonoBehaviour
 {
     public StructurePrefabWeighted[] housesPrefabs, specialPrefabs, bigStructurePrefabs;
+    public GameObject forest;
     public PlacementManager placementManager;
 
     private float[] houseWeights, specialWeights, bigStructureWeights;
@@ -32,7 +33,8 @@ public class StructureManager : MonoBehaviour
             position = new Vector3Int(x, y, z);
         } while (!CheckPositionBeforePlacementForWoods(position));
         int randomIndex = 1;
-        placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+        //placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+        placementManager.PlaceObjectOnTheMap(position, forest, CellType.Structure);
     }
 
     public void PlaceHouse(Vector3Int p)

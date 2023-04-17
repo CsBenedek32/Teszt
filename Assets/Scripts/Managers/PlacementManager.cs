@@ -22,7 +22,7 @@ public class PlacementManager : MonoBehaviour
   
     private void Start()
     {
-        //initialNumOfWoods = 3;
+        initialNumOfWoods = 5;
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
         placeInitialWoods(initialNumOfWoods);
@@ -64,8 +64,6 @@ public class PlacementManager : MonoBehaviour
                 var newPosition = position + new Vector3Int(x, 0, z);
                 placementGrid[newPosition.x, newPosition.z] = type;
                 structureAndRoadsDictionary.Add(newPosition, structure);
-                //Debug.Log(structureAndRoadsDictionary[newPosition]);
-
             }
         }
         

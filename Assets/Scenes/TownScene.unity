@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18090543, g: 0.22645362, b: 0.30723208, a: 1}
+  m_IndirectSpecularColor: {r: 0.1809051, g: 0.22645304, b: 0.3072308, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1580,6 +1580,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 30
   height: 30
+  structureManager: {fileID: 1657347815}
+  initialNumOfWoods: 0
 --- !u!1 &899223842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2476,6 +2478,7 @@ MonoBehaviour:
   bigStructurePrefabs:
   - prefab: {fileID: 2315885335286750609, guid: dec092f7a8e04ce4a9b2a6eb1ff0cc4e, type: 3}
     weight: 1
+  forest: {fileID: 919132149155446097, guid: c3e056f32f1111447bd3df8d820e6be6, type: 3}
   placementManager: {fileID: 802023218}
 --- !u!1 &1874407663
 GameObject:
