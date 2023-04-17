@@ -29,13 +29,14 @@ public class UiController : MonoBehaviour
         placeRoadButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeRoadButton);
-            OnRoadPlacement?.Invoke();
-        
+            OnRoadPlacement?.Invoke();  
         });
         placeResidentialButton.onClick.AddListener(() => {
             ResetButtonColor();
+
             ModifyOutline(placeResidentialButton);
             OnResidentialPlacement?.Invoke();
+
 
         });
         placeCommercialButton.onClick.AddListener(() => {
@@ -48,19 +49,16 @@ public class UiController : MonoBehaviour
             ResetButtonColor();
             ModifyOutline(placeIndustrialButton);
             OnIndustrialPlacement?.Invoke();
-
         });
         placeBigStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeBigStructureButton);
             OnBigStructurePlacement?.Invoke();
-
         });
         removeStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(removeStructureButton);
             onRemoveStructure?.Invoke();
-
         });
 
         selectButton.onClick.AddListener(() => {
