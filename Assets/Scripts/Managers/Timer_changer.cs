@@ -10,6 +10,8 @@ public class Timer_changer : MonoBehaviour
     List<Button> buttons;
     public Color borderColor;
 
+    public Animator DayNight;
+
     private float timePassedSinceBeginning = 0;
     private float dayPassed = 0;
     public Text textBox;
@@ -69,6 +71,9 @@ public class Timer_changer : MonoBehaviour
     void timePasses(float speed)
     {
         timePassedSinceBeginning += speed * Time.deltaTime;
+        if (speed != 0) DayNight.speed = speed / 2;
+        else DayNight.speed = speed / 0;
+
         refreshDate(timePassedSinceBeginning);
     }
 
