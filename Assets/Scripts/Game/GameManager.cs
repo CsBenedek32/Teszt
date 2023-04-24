@@ -18,11 +18,17 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         uiController.OnRoadPlacement += roadPlacementHandler;
-        uiController.OnHousePlacement += housePlacementHandler;
-        uiController.OnSpecialPlacement += specialPlacementHandler;
+        
+        uiController.OnResidentialPlacement += residentialZonePlacementHandler;
+        uiController.OnCommercialPlacement += commercialZonePlacementHandler;
+        uiController.OnIndustrialPlacement += industrialZonePlacementHandler;
+
         uiController.OnBigStructurePlacement += bigStructurePlacementHandler;
         uiController.onRemoveStructure += removeStructureHandler;
+        uiController.onSelect += selectionHandler;
     }
+
+    
 
     private void removeStructureHandler()
     {
@@ -38,16 +44,28 @@ public class GameManager : MonoBehaviour
         inputManager.OnMouseClick += structureManager.PlaceBigStructure;
     }
 
-    private void housePlacementHandler()
+    private void residentialZonePlacementHandler()
     {
         ClearInputAction();
-        inputManager.OnMouseClick += structureManager.PlaceHouse;
+        inputManager.OnMouseClick += structureManager.PlaceResidentialZone;
     }
 
-    private void specialPlacementHandler()
+
+    private void selectionHandler()
     {
         ClearInputAction();
-        inputManager.OnMouseClick += structureManager.PlaceSpecial;
+        inputManager.OnMouseClick += structureManager.Select;
+    }
+
+    private void commercialZonePlacementHandler()
+    {
+        ClearInputAction();
+        inputManager.OnMouseClick += structureManager.PlaceCommercialZone;
+    }
+    private void industrialZonePlacementHandler()
+    {
+        ClearInputAction();
+        inputManager.OnMouseClick += structureManager.PlaceIndustrialZone;
     }
 
     private void roadPlacementHandler()
@@ -70,6 +88,15 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         cameraMovement.MoveCamera(new Vector3(inputManager.CameraMovementVector.x, 0, inputManager.CameraMovementVector.y));
-       
+        
+        if(Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            cameraMovement.ZoomIn();
+        }
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            cameraMovement.ZoomOut();
+        }
     }
 }

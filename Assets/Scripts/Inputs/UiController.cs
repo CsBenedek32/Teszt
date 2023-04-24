@@ -6,46 +6,68 @@ using UnityEngine.UI;
 
 public class UiController : MonoBehaviour
 {
-    public Action OnRoadPlacement, OnHousePlacement, OnSpecialPlacement, OnBigStructurePlacement, onRemoveStructure;
-    public Button placeRoadButton, placeHouseButton, placeSpecialButton, placeBigStructureButton, removeStructureButton;
+    public Action OnRoadPlacement, OnResidentialPlacement, OnCommercialPlacement, OnIndustrialPlacement, OnBigStructurePlacement, onRemoveStructure,onSelect;
+    public Button placeRoadButton, placeResidentialButton, placeCommercialButton, placeIndustrialButton, placeBigStructureButton, removeStructureButton,selectButton;
+
 
     public Color outlineColor;
     List<Button> buttons;
 
     private void Start()
     {
-        buttons = new List<Button> { placeHouseButton, placeRoadButton, placeSpecialButton, placeBigStructureButton, removeStructureButton };
+        buttons = new List<Button> { 
+            placeResidentialButton,
+            placeCommercialButton,
+            placeIndustrialButton,
+
+            placeRoadButton,
+            placeBigStructureButton,
+            selectButton,
+            removeStructureButton };
+
 
         placeRoadButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeRoadButton);
-            OnRoadPlacement?.Invoke();
-        
+            OnRoadPlacement?.Invoke();  
         });
-        placeHouseButton.onClick.AddListener(() => {
+        placeResidentialButton.onClick.AddListener(() => {
             ResetButtonColor();
-            ModifyOutline(placeHouseButton);
-            OnHousePlacement?.Invoke();
+
+            ModifyOutline(placeResidentialButton);
+            OnResidentialPlacement?.Invoke();
+
 
         });
-        placeSpecialButton.onClick.AddListener(() => {
+        placeCommercialButton.onClick.AddListener(() => {
             ResetButtonColor();
-            ModifyOutline(placeSpecialButton);
-            OnSpecialPlacement?.Invoke();
+            ModifyOutline(placeCommercialButton);
+            OnCommercialPlacement?.Invoke();
 
+        });
+        placeIndustrialButton.onClick.AddListener(() => {
+            ResetButtonColor();
+            ModifyOutline(placeIndustrialButton);
+            OnIndustrialPlacement?.Invoke();
         });
         placeBigStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(placeBigStructureButton);
             OnBigStructurePlacement?.Invoke();
-
         });
         removeStructureButton.onClick.AddListener(() => {
             ResetButtonColor();
             ModifyOutline(removeStructureButton);
             onRemoveStructure?.Invoke();
+        });
+
+        selectButton.onClick.AddListener(() => {
+            ResetButtonColor();
+            ModifyOutline(selectButton);
+            onSelect?.Invoke();
 
         });
+
     }
 
     private void ModifyOutline(Button button)

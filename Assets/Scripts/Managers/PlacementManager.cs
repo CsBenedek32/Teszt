@@ -7,20 +7,26 @@ using UnityEngine.UIElements;
 
 public class PlacementManager : MonoBehaviour
 {
+    public Button button_for_probe;
     public int width, height;
     Grid placementGrid;
 
     int numberOfStructures;
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
     private Dictionary<Vector3Int, StructureModel> structureAndRoadsDictionary = new Dictionary<Vector3Int, StructureModel>();
+    private StructureModel selected;
 
+    public StructureManager structureManager;
+    public int initialNumOfWoods;
+    int numberOfWoods = 0;
    
   
     private void Start()
     {
         numberOfStructures = 0;
         placementGrid = new Grid(width, height);
-       
+        selected = null;
+        placeInitialWoods(initialNumOfWoods);
     }
 
     internal CellType[] GetNeighbourTypesFor(Vector3Int position)
@@ -40,6 +46,11 @@ public class PlacementManager : MonoBehaviour
            
     }
 
+    public StructureModel Selected
+    {
+        get { return selected; }
+    }
+
     internal bool CheckIfPositionInBound(Vector3Int position)
     {
         if (position.x >= 0 && position.x < width && position.z >= 0 && position.z < height)
@@ -51,7 +62,6 @@ public class PlacementManager : MonoBehaviour
 
     internal void PlaceObjectOnTheMap(Vector3Int position, GameObject structurePrefab, CellType type, int width = 1, int height = 1)
     {
-        
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
         for (int x = 0; x < width; x++)
         {
@@ -60,12 +70,19 @@ public class PlacementManager : MonoBehaviour
                 var newPosition = position + new Vector3Int(x, 0, z);
                 placementGrid[newPosition.x, newPosition.z] = type;
                 structureAndRoadsDictionary.Add(newPosition, structure);
-                //Debug.Log(structureAndRoadsDictionary[newPosition]);
-
             }
         }
         
 
+    }
+
+    internal void SelectObjectOnTheMap(Vector3Int position)
+    {
+        if (structureAndRoadsDictionary.ContainsKey(position))
+            selected = structureAndRoadsDictionary[position];
+        else
+            selected = null;
+        Debug.Log(selected);
     }
 
 
@@ -199,7 +216,19 @@ public class PlacementManager : MonoBehaviour
         }
     }
 
-   
+    void placeInitialWoods(int woodsNeeded)
+    {
+        while(numberOfWoods<woodsNeeded)
+        {
+            numberOfWoods++;
+            placeWoods();
+        }
+    }
 
-    
+    void placeWoods()
+    {
+        structureManager.PlaceWoods();
+    }
+
+
 }

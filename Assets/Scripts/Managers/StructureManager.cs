@@ -7,42 +7,79 @@ using UnityEngine.UIElements;
 
 public class StructureManager : MonoBehaviour
 {
-    public StructurePrefabWeighted[] housesPrefabs, specialPrefabs, bigStructurePrefabs;
+    public StructurePrefabWeighted[] residentialZonePrefabs, commercialZonePrefabs, industrialZonePrefabs, bigStructurePrefabs;
+     public GameObject forest;
+
     public PlacementManager placementManager;
 
-    private float[] houseWeights, specialWeights, bigStructureWeights;
+    private float[] residentialWeights, commercialWeights, industrialWeights, bigStructureWeights;
 
     private void Start()
     {
-        houseWeights = housesPrefabs.Select(prefabStats => prefabStats.weight).ToArray();
-        specialWeights = specialPrefabs.Select(prefabStats => prefabStats.weight).ToArray() ;
+        residentialWeights  = residentialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
+        commercialWeights   = commercialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
+        industrialWeights   = industrialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
         bigStructureWeights = bigStructurePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
     }
 
-    public void PlaceHouse(Vector3Int p)
+
+    internal void PlaceWoods()
+    {
+        int x, y, z;
+        Vector3Int position;
+        System.Random r = new System.Random();
+        y = 0;
+        do
+        {
+            x = r.Next(0, 30);
+            z = r.Next(0, 30);
+            position = new Vector3Int(x, y, z);
+        } while (!CheckPositionBeforePlacementForWoods(position));
+        //int randomIndex = 1;
+        //placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
+        placementManager.PlaceObjectOnTheMap(position, forest, CellType.Structure);
+    }
+
+    public void PlaceResidentialZone(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
         {
-            int randomIndex = GetRandomWeightIndex(houseWeights);
-            placementManager.PlaceObjectOnTheMap(p, housesPrefabs[randomIndex].prefab, CellType.Structure);
+            int randomIndex = GetRandomWeightIndex(residentialWeights);
+            placementManager.PlaceObjectOnTheMap(p, residentialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
-    public void PlaceSpecial(Vector3Int p)
+
+    public void Select(Vector3Int p)
+    {
+        if (CheckPositionBeforeSelect(p))
+        {
+            placementManager.SelectObjectOnTheMap(p);
+        }
+    }
+
+    
+    public void PlaceCommercialZone(Vector3Int p)
     {
         if (CheckPositionBeforePlacement(p))
         {
-            int randomIndex = GetRandomWeightIndex(specialWeights);
-            placementManager.PlaceObjectOnTheMap(p, specialPrefabs[randomIndex].prefab, CellType.Structure);
+            int randomIndex = GetRandomWeightIndex(commercialWeights);
+            placementManager.PlaceObjectOnTheMap(p, commercialZonePrefabs[randomIndex].prefab, CellType.Structure);
+        }
+    }
+
+    public void PlaceIndustrialZone(Vector3Int p)
+    {
+        if (CheckPositionBeforePlacement(p))
+        {
+            int randomIndex = GetRandomWeightIndex(industrialWeights);
+            placementManager.PlaceObjectOnTheMap(p, industrialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
     private int GetRandomWeightIndex(float[] weights)
     {
-        
-        //honestly idk mi töréténik itt ???????????????????
-        //inkabb hogy miért törénik itt ez a kérdés     -Benedek
-        
+
 
         float sum = 0f;
         for (int i = 0; i < weights.Length; i++)
@@ -65,8 +102,16 @@ public class StructureManager : MonoBehaviour
     }
 
 
+    private bool CheckPositionBeforePlacementForWoods(Vector3Int position)
+    {
+        if (defaultCheck(position) == false)
+        {
+            return false;
+        };
+        
+        return true;
+    }
 
-    
     private bool CheckPositionBeforePlacement(Vector3Int position)
     {
         if (defaultCheck(position) == false) {
@@ -82,7 +127,14 @@ public class StructureManager : MonoBehaviour
         return true;
     }
 
-   
+    private bool CheckPositionBeforeSelect(Vector3Int position)
+    {
+        if (placementManager.CheckIfPositionInBound(position))
+        {
+            return true;
+        }
+        return false;
+    }
 
 
     private bool roadCheck(Vector3Int position)
@@ -152,6 +204,8 @@ public class StructureManager : MonoBehaviour
             placementManager.RemoveHouse(p);   
         }
     }
+
+    
 }
 
 [Serializable]
