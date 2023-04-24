@@ -35,7 +35,7 @@ public class StructureManager : MonoBehaviour
             z = r.Next(0, 30);
             position = new Vector3Int(x, y, z);
         } while (!CheckPositionBeforePlacementForWoods(position));
-        int randomIndex = 1;
+        //int randomIndex = 1;
         //placementManager.PlaceObjectOnTheMap(position, housesPrefabs[randomIndex].prefab, CellType.Structure);
         placementManager.PlaceObjectOnTheMap(position, forest, CellType.Structure);
     }
