@@ -9,7 +9,11 @@ public class PlacementManager : MonoBehaviour
 {
     public Button button_for_probe;
     public int width, height;
+    
+
+
     Grid placementGrid;
+    
 
     int numberOfStructures;
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();

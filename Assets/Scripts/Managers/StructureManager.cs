@@ -8,9 +8,10 @@ using UnityEngine.UIElements;
 public class StructureManager : MonoBehaviour
 {
     public StructurePrefabWeighted[] residentialZonePrefabs, commercialZonePrefabs, industrialZonePrefabs, bigStructurePrefabs;
-     public GameObject forest;
+    public GameObject forest;
 
     public PlacementManager placementManager;
+    public CityManagment cityManagment;
 
     private float[] residentialWeights, commercialWeights, industrialWeights, bigStructureWeights;
 
@@ -45,6 +46,7 @@ public class StructureManager : MonoBehaviour
         if (CheckPositionBeforePlacement(p))
         {
             int randomIndex = GetRandomWeightIndex(residentialWeights);
+        
             placementManager.PlaceObjectOnTheMap(p, residentialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
