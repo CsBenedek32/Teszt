@@ -103,5 +103,6 @@ public class RoadManager : MonoBehaviour
     {
         placementManager.removeRoad(pos);
         roadFixer.updateRoadAround(placementManager,pos);
+        
     }
 }

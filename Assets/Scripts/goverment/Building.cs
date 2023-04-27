@@ -1,33 +1,40 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
+using System.Numerics;
 
-public class Building : MonoBehaviour
+public class Building
 {
-    //public Parameters parameters;
+   
 
-    int type;
-    int maxResidents;
-    int upKeepCost;
-    int level;
-    bool canUpgrade;
-    List<Person> currentResidents;
+    public BuildingType type;
+    public int maxResidents;
+    public int upKeepCost;
+    public int level;
+    public bool canUpgrade;
+    public List<Person> currentResidents;
+    
 
-    public Building(int type)
+    public Building(BuildingType type)
     {
+       
+        
+        
         this.type = type;
         this.level = 0;
         canUpgrade = false;
         currentResidents = new List<Person>();
 
-        if (type == 1 || type == 2) {
-            maxResidents = 0;
-            upKeepCost = 0;
+        if (type == BuildingType.CommercailZone || type == BuildingType.IndustrialZone) {
+            maxResidents = Parameters.maxResidentsForWork[level];
+            upKeepCost = Parameters.upKeepCostForWorkPlace[level];
         }
         else {
-            maxResidents = 0;
-            upKeepCost = 0;
+            maxResidents = Parameters.maxResidentsForLiving[level];
+            upKeepCost = Parameters.upKeepCostForLiving[level];
         }
+
+       
     }
+
 }

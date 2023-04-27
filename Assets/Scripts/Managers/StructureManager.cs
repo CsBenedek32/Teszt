@@ -17,6 +17,7 @@ public class StructureManager : MonoBehaviour
 
     private void Start()
     {
+      
         residentialWeights  = residentialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
         commercialWeights   = commercialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
         industrialWeights   = industrialZonePrefabs.Select(prefabStats => prefabStats.weight).ToArray();
@@ -46,7 +47,9 @@ public class StructureManager : MonoBehaviour
         if (CheckPositionBeforePlacement(p))
         {
             int randomIndex = GetRandomWeightIndex(residentialWeights);
-        
+            
+           
+            if(cityManagment.placeBuildingInCity(p, BuildingType.ResidentialZone))
             placementManager.PlaceObjectOnTheMap(p, residentialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
@@ -66,7 +69,9 @@ public class StructureManager : MonoBehaviour
         if (CheckPositionBeforePlacement(p))
         {
             int randomIndex = GetRandomWeightIndex(commercialWeights);
-            placementManager.PlaceObjectOnTheMap(p, commercialZonePrefabs[randomIndex].prefab, CellType.Structure);
+           
+            if(cityManagment.placeBuildingInCity(p, BuildingType.CommercailZone))
+                placementManager.PlaceObjectOnTheMap(p, commercialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
@@ -75,7 +80,9 @@ public class StructureManager : MonoBehaviour
         if (CheckPositionBeforePlacement(p))
         {
             int randomIndex = GetRandomWeightIndex(industrialWeights);
-            placementManager.PlaceObjectOnTheMap(p, industrialZonePrefabs[randomIndex].prefab, CellType.Structure);
+           
+            if(cityManagment.placeBuildingInCity(p, BuildingType.IndustrialZone))
+                placementManager.PlaceObjectOnTheMap(p, industrialZonePrefabs[randomIndex].prefab, CellType.Structure);
         }
     }
 
@@ -171,9 +178,13 @@ public class StructureManager : MonoBehaviour
         if (checkBigStructure(position, widht, height)) {
 
           
-            int randomIndex = GetRandomWeightIndex(bigStructureWeights);
-            placementManager.PlaceObjectOnTheMap(position, bigStructurePrefabs[randomIndex].prefab, CellType.SpecialStructure, widht, height);
-            
+           
+            if (cityManagment.placeBuildingInCity(position, BuildingType.StadiumType)) {
+
+                int randomIndex = GetRandomWeightIndex(bigStructureWeights);
+                placementManager.PlaceObjectOnTheMap(position, bigStructurePrefabs[randomIndex].prefab, CellType.SpecialStructure, widht, height);
+            }
+
         }
     }
 
@@ -203,7 +214,8 @@ public class StructureManager : MonoBehaviour
     {
         if (!defaultCheck(p))
         {     
-            placementManager.RemoveHouse(p);   
+            placementManager.RemoveHouse(p);
+            cityManagment.RemoveBuilding(p);
         }
     }
 

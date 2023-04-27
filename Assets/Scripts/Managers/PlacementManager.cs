@@ -9,9 +9,9 @@ public class PlacementManager : MonoBehaviour
 {
     public Button button_for_probe;
     public int width, height;
-    
 
 
+    public CityManagment cityManagment;
     Grid placementGrid;
     
 
@@ -194,7 +194,7 @@ public class PlacementManager : MonoBehaviour
         foreach (var structure in temporaryRoadobjects)
         {
             structureAndRoadsDictionary.Add(structure.Key, structure.Value);
-          
+            cityManagment.placeBuildingInCity(structure.Key, BuildingType.RoadType);
         }
         temporaryRoadobjects.Clear();
     }
@@ -212,6 +212,7 @@ public class PlacementManager : MonoBehaviour
        
         if (structureAndRoadsDictionary.ContainsKey(pos))
         {
+            cityManagment.RemoveBuilding(pos);
             StructureModel structureToRemove = structureAndRoadsDictionary[pos];
             Destroy(structureToRemove.gameObject);
             placementGrid[pos.x, pos.z] = CellType.Empty;

@@ -26,6 +26,11 @@ public class GameManager : MonoBehaviour
         uiController.OnBigStructurePlacement += bigStructurePlacementHandler;
         uiController.onRemoveStructure += removeStructureHandler;
         uiController.onSelect += selectionHandler;
+
+        TimeTickSystem.OnTick += delegate (object sender, TimeTickSystem.OnTickEventArgs e)
+        {
+            Debug.Log(e.tick);
+        };
     }
 
     

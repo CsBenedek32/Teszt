@@ -82,16 +82,16 @@ public class Timer_changer : MonoBehaviour
 
     private void ModifyOutline(Button button)
     {
-        var outline = button.GetComponent<Outline>();
+        /*var outline = button.GetComponent<Outline>();
         outline.effectColor = borderColor;
-        outline.enabled = true;
+        outline.enabled = true;*/
     }
 
     private void ResetButtonColor()
     {
-        foreach (var button in buttons)
+        /*foreach (var button in buttons)
         {
             button.GetComponent<Outline>().enabled = false;
-        }
+        }*/
     }
 }

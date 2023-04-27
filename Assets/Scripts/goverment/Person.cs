@@ -1,18 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class Person : MonoBehaviour
+public class Person
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public static int lastid = 0;
+    public int id { get; set; }
+    public Building Home{ get; set; }
+    public Building WorkPlace { get; set; }
+    public Person() {
+        id = ++lastid;
     }
 }
