@@ -2329,6 +2329,7 @@ GameObject:
   - component: {fileID: 681313530}
   - component: {fileID: 681313534}
   - component: {fileID: 681313535}
+  - component: {fileID: 681313536}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2459,6 +2460,21 @@ MonoBehaviour:
   borderColor: {r: 0, g: 0, b: 0, a: 0}
   textBox: {fileID: 100255577}
   timePassesSpeed: 1
+--- !u!114 &681313536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 681313528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80ef7bf312d7c124a8431e88b6367587, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cityManagment: {fileID: 1865725795}
+  money: {fileID: 1294228711}
+  population: {fileID: 968517014}
 --- !u!1 &704655357
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 30
   height: 30
+  cityManagment: {fileID: 1865725795}
   structureManager: {fileID: 1657347815}
   initialNumOfWoods: 20
 --- !u!1 &840961428
@@ -3772,6 +3789,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starterFunds: 5000
+  tax: 0
 --- !u!1 &1170018660
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,7 +5259,7 @@ MonoBehaviour:
     weight: 1
   forest: {fileID: 8028572972740798329, guid: 9fc17c89c7542c94e9dda6a8766cf667, type: 3}
   placementManager: {fileID: 802023218}
-  cityManagment: {fileID: 0}
+  cityManagment: {fileID: 1865725795}
 --- !u!1 &1671145205
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,8 +5854,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyManager: {fileID: 1116674988}
-  citizens: []
   spendableMoney: 0
+  remainingPlacesInCity: 0
+  remainingWorkPlacesInCity: 0
 --- !u!1 &1874407663
 GameObject:
   m_ObjectHideFlags: 0
@@ -6330,6 +6349,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2010322409}
   m_CullTransparentMesh: 0
+--- !u!1 &2025418284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2025418285}
+  - component: {fileID: 2025418286}
+  m_Layer: 0
+  m_Name: TimeTickSytem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2025418285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025418284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 670.08203, y: 201.56769, z: 3.5970976}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2025418286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025418284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8754ea18f78ac5e4fa6fd2d6484305d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tc: {fileID: 681313535}
+  TickTimerMax: 1
 --- !u!1 &2041948876
 GameObject:
   m_ObjectHideFlags: 0
